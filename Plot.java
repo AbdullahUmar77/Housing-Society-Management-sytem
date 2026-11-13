@@ -1,12 +1,11 @@
-public abstract class Plot{
-	private int plotNo;
-	private double length;
-	private double width;
-	private string status;
-        private Owner owner;
-	
+public abstract class Plot {
 
-	
+    private int plotNo;
+    private double length;
+    private double width;
+    private String status;
+    private Owner owner;
+
     private Payment[] payments;
     private int paymentCount;
 
@@ -23,18 +22,23 @@ public abstract class Plot{
         paymentCount = 0;
     }
 
-	   public abstract double calculateArea();
-	
+    public abstract double calculateArea();
+
+    public abstract double calculateMaintenanceFee();
+
     public void displayPlotDetails() {
 
         System.out.println("Plot Number: " + plotNo);
         System.out.println("Length: " + length);
         System.out.println("Width: " + width);
         System.out.println("Area: " + calculateArea());
+        System.out.println("Maintenance Fee: Rs. " + calculateMaintenanceFee());
         System.out.println("Status: " + status);
 
         if (owner != null) {
             System.out.println("Owner: " + owner.getOwnerName());
+        } else {
+            System.out.println("Owner: No owner yet");
         }
     }
 
@@ -46,7 +50,10 @@ public abstract class Plot{
         }
     }
 
-    // Getters and Setters
+    public int getPaymentCount() {
+        return paymentCount;
+    }
+
 
     public int getPlotNo() {
         return plotNo;
@@ -91,7 +98,4 @@ public abstract class Plot{
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
-} 
-
-
 }
