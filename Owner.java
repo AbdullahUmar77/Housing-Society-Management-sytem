@@ -1,4 +1,3 @@
-
 public class Owner {
 
     private int ownerId;
@@ -47,6 +46,18 @@ public class Owner {
 
     public PlotTransfer[] getTransfers() {
         return transfers;
+    }
+
+    public int getPlotCount() {
+        return plotCount;
+    }
+
+    public int getPaymentCount() {
+        return paymentCount;
+    }
+
+    public int getTransferCount() {
+        return transferCount;
     }
 
     public void addPlot(Plot plot) {
@@ -101,4 +112,3 @@ public class Owner {
         }
     }
 }
-
