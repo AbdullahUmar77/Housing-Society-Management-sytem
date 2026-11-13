@@ -6,7 +6,7 @@ public class HousingSociety {
     private Block[] blocks = new Block[10];
     private int blockCount = 0;
 
-    
+
     public HousingSociety(int societyId, String societyName,
                           String location) {
         this.societyId = societyId;
@@ -14,7 +14,22 @@ public class HousingSociety {
         this.location = location;
     }
 
-    
+    public int getSocietyId() {
+        return societyId;
+    }
+
+    public String getSocietyName() {
+        return societyName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getBlockCount() {
+        return blockCount;
+    }
+
     public void addBlock(Block block) {
         if (blockCount < blocks.length) {
             blocks[blockCount] = block;
@@ -25,7 +40,15 @@ public class HousingSociety {
         }
     }
 
-   
+    public Block findBlock(String blockName) {
+        for (int i = 0; i < blockCount; i++) {
+            if (blocks[i].getBlockName().equals(blockName)) {
+                return blocks[i];
+            }
+        }
+        return null;
+    }
+
     public void displaySocietyDetails() {
         System.out.println("Society ID: " + societyId);
         System.out.println("Society Name: " + societyName);
