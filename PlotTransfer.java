@@ -1,4 +1,3 @@
-
 public class PlotTransfer {
 
     private int transferId;
@@ -29,13 +28,28 @@ public class PlotTransfer {
         return transferDate;
     }
 
+    public Plot getPlot() {
+        return plot;
+    }
+
+    public Owner getFromOwner() {
+        return fromOwner;
+    }
+
+    public Owner getToOwner() {
+        return toOwner;
+    }
+
     public boolean isCompleted() {
         return completed;
     }
 
     public void transferPlot() {
 
-        if (plot.getOwner() == fromOwner) {
+        if (completed == true) {
+            System.out.println("This transfer is already completed.");
+        }
+        else if (plot.getOwner() == fromOwner) {
 
             fromOwner.removePlot(plot);
             toOwner.addPlot(plot);
@@ -75,4 +89,3 @@ public class PlotTransfer {
         }
     }
 }
-
