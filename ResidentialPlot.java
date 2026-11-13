@@ -18,7 +18,15 @@ public class ResidentialPlot extends Plot {
     }
 
     @Override
+    public double calculateMaintenanceFee() {
+
+        return calculateArea() * 10;
+    }
+
+    @Override
     public void displayPlotDetails() {
+
+        System.out.println("Type: Residential Plot");
 
         super.displayPlotDetails();
 
