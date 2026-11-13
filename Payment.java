@@ -1,4 +1,3 @@
-
 public class Payment {
 
     private int paymentId;
@@ -37,19 +36,31 @@ public class Payment {
         return paymentType;
     }
 
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public Plot getPlot() {
+        return plot;
+    }
+
     public boolean isPaid() {
         return paid;
     }
 
     public void makePayment() {
 
-        if (amount <= 0) {
+        if (paid == true) {
+            System.out.println("This payment is already paid.");
+        }
+        else if (amount <= 0) {
             System.out.println("Invalid Amount. Payment Failed.");
         }
         else {
             paid = true;
 
             owner.addPayment(this);
+            plot.addPayment(this);
 
             System.out.println("Payment Received Successfully.");
             System.out.println("Amount: Rs. " + amount);
@@ -77,4 +88,3 @@ public class Payment {
         }
     }
 }
-
